@@ -7,19 +7,19 @@ const Header = () => {
       {/* NAV */}
       <nav className="Sticky z-20 top-0 lg:px-12 flex flex-wrap items-center justify-between">
         <a href="#">
-          <img src={BankistLogo} className="h-8 md:h-16" alt="Bankist Logo" />
+          <img src={BankistLogo} className="h-6 md:h-16" alt="Bankist Logo" />
         </a>
         <div className="flex md:order-2 space-x-3 md:space-x-0">
           <button
             type="button"
-            className="text-[#222] bg-green hover:bg-green-dark font-medium rounded-3xl text-base px-6 py-3 text-center"
+            className="text-[#222] bg-green hover:bg-green-dark font-medium rounded-3xl text-sm md:text-base px-4 py-3 text-center"
           >
             Open Account
           </button>
           <button
             id="navbar-cta"
             type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden"
           >
             <span className="sr-only">Open main menu</span>
             <svg
@@ -40,7 +40,7 @@ const Header = () => {
           </button>
         </div>
         <div
-          className="items-center justify-between w-full md:flex md:w-auto md:order-1 hidden"
+          className="items-center justify-between w-full md:flex md:w-auto md:order-1 "
           id="navbar-cta"
         >
           <ul className="flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 md:flex-row md:mt-0 md:border-0 md:bg-white text-lg">
