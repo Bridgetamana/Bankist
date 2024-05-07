@@ -10,13 +10,13 @@ function App() {
 
   return (
     <div className=" font-poppins bg-[#f3f3f3] text-[#222]">
-      {/* <Header />
+      <Header />
       <Features />
       <Operations />
       <Testimonial />
       <SignUp />
-      <Footer /> */}
-      <OpenAccountModal />
+      <Footer />
+      {/* <OpenAccountModal /> */}
     </div>
   );
 }

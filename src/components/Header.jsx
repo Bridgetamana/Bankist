@@ -1,52 +1,86 @@
+// Header.jsx
+import React, { useState } from "react";
 import BankistLogo from "../assets/logo.png";
 import Heroimg from "../assets/hero.png";
+import OpenAccountModal from "./OpenAccountModal";
 
 const Header = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
+
+  const handleMenuToggle = () => {
+    setShowMenu(!showMenu);
+  };
+
+  const handleOpenModal = () => {
+    setShowModal(true);
+  };
+
   return (
-    <header className="p-6">
+    <header className="p-4">
       {/* NAV */}
       <nav className="Sticky z-20 top-0 lg:px-12 flex flex-wrap items-center justify-between">
         <a href="#">
-          <img src={BankistLogo} className="h-6 md:h-16" alt="Bankist Logo" />
+          <img src={BankistLogo} className="h-6 md:h-14" alt="Bankist Logo" />
         </a>
-        <div className="flex md:order-2 space-x-3 md:space-x-0">
+        <div className="flex md:order-2 space-x-2 md:space-x-0">
           <button
             type="button"
             className="text-[#222] bg-green hover:bg-green-dark font-medium rounded-3xl text-sm md:text-base px-4 py-3 text-center"
+            onClick={handleOpenModal}
           >
             Open Account
           </button>
           <button
-            id="navbar-cta"
+            id="menu-toggle"
             type="button"
             className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden"
+            onClick={handleMenuToggle}
           >
-            <span className="sr-only">Open main menu</span>
-            <svg
-              className="w-5 h-5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 17 14"
-            >
-              <path
+            <span className="sr-only">Toggle menu</span>
+            {showMenu ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
                 stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M1 1h15M1 7h15M1 13h15"
-              />
-            </svg>
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18 18 6M6 6l12 12"
+                />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3.75 9h16.5m-16.5 6.75h16.5"
+                />
+              </svg>
+            )}
           </button>
         </div>
         <div
-          className="items-center justify-between w-full md:flex md:w-auto md:order-1 "
+          className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${
+            showMenu ? "" : "hidden"
+          }`}
           id="navbar-cta"
         >
-          <ul className="flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 md:flex-row md:mt-0 md:border-0 md:bg-white text-lg">
+          <ul className="flex flex-col p-4 md:p-0 mt-4 rounded-lg bg-gray-50 md:space-x-8 md:flex-row md:mt-0 md:bg-white text-lg">
             <li>
               <a
-                href="#"
+                href="#features"
                 className="block py-2 px-3 md:p-0 text-[#444] rounded"
               >
                 Features
@@ -54,7 +88,7 @@ const Header = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="#operations"
                 className="block py-2 px-3 md:p-0 text-[#444] rounded"
               >
                 Operations
@@ -62,7 +96,7 @@ const Header = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="#testimonial"
                 className="block py-2 px-3 md:p-0 text-[#444] rounded"
               >
                 Testimonial
@@ -71,7 +105,6 @@ const Header = () => {
           </ul>
         </div>
       </nav>
-
       {/* Hero-Section */}
       <section className="px-16 py-12 lg:py-24 mx-auto max-w-screen-2xl">
         <div className="flex items-center gap-24 justify-center">
@@ -93,7 +126,6 @@ const Header = () => {
             <p className="mt-4 text-xl font-medium">
               A simpler banking experience for a simpler life
             </p>
-            `{" "}
             <span className="text-green text-lg border-b-2 border-b-green pb-2 cursor-pointer flex items-center w-32 mt-4 justify-center">
               <a href="#">Learn more</a>
               <svg
@@ -112,7 +144,6 @@ const Header = () => {
               </svg>
             </span>
           </div>
-          `{" "}
           <div className="hidden lg:flex max-w-xl">
             <img
               src={Heroimg}
@@ -122,6 +153,7 @@ const Header = () => {
           </div>
         </div>
       </section>
+      {showModal && <OpenAccountModal setShowModal={setShowModal} />}{" "}
     </header>
   );
 };
