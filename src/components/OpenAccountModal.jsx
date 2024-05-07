@@ -3,7 +3,7 @@ const OpenAccountModal = ({ setShowModal }) => {
   return (
     <section className="fixed inset-0 bg-[#000]/50 z-40">
       <div className="fixed top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] bg-[#f3f3f3] z-50 rounded-lg">
-        <div className="max-w-lg p-4 ">
+        <div className="max-w-lg min-w-[320px] p-4 ">
           <div className="flex justify-between mb-4">
             <p></p>
             <button

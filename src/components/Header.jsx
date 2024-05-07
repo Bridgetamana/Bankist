@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import BankistLogo from "../assets/logo.png";
 import Heroimg from "../assets/hero.png";
 import OpenAccountModal from "./OpenAccountModal";
+import {Link} from "react-scroll"
 
 const Header = () => {
   const [showModal, setShowModal] = useState(false);
@@ -15,6 +16,7 @@ const Header = () => {
   const handleOpenModal = () => {
     setShowModal(true);
   };
+
 
   return (
     <header className="p-4">
@@ -77,30 +79,33 @@ const Header = () => {
           }`}
           id="navbar-cta"
         >
-          <ul className="flex flex-col p-4 md:p-0 mt-4 rounded-lg bg-gray-50 md:space-x-8 md:flex-row md:mt-0 md:bg-white text-lg">
+          <ul className="flex flex-col p-4 md:p-0 mt-4 rounded-lg bg-gray-50 md:space-x-8 md:flex-row md:mt-0 md:bg-white text-lg group">
             <li>
-              <a
-                href="#features"
-                className="block py-2 px-3 md:p-0 text-[#444] rounded"
+              <Link
+                to="features"
+                smooth={true}
+                className="block py-2 px-3 md:p-0 text-[#444] rounded cursor-pointer"
               >
                 Features
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#operations"
-                className="block py-2 px-3 md:p-0 text-[#444] rounded"
+              <Link
+                to="operations"
+                smooth={true}
+                className="block py-2 px-3 md:p-0 text-[#444] rounded cursor-pointer"
               >
                 Operations
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#testimonial"
-                className="block py-2 px-3 md:p-0 text-[#444] rounded"
+              <Link
+                to="testimonial"
+                smooth={true}
+                className="block py-2 px-3 md:p-0 text-[#444] rounded cursor-pointer"
               >
                 Testimonial
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

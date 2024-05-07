@@ -1,6 +1,7 @@
 import React from 'react'
 import Icon from "../assets/icon.png";
 const Footer = () => {
+
   return (
     <section className=" px-16 py-12 lg:py-24 bg-[#37383d]">
       <ul className="flex flex-wrap justify-center mb-8 space-x-6 text-lg">
@@ -31,7 +32,7 @@ const Footer = () => {
         </li>
       </ul>
       <div className="flex justify-center">
-        <img src={Icon} alt="Bankist Logo" />
+        <img src={Icon} alt="Bankist Logo" className="h-12 md:h-16" />
       </div>
     </section>
   );
