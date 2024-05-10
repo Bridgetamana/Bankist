@@ -33,6 +33,7 @@ const Header = () => {
           >
             Open Account
           </button>
+          {showModal && <OpenAccountModal setShowModal={setShowModal} />}{" "}
           <button
             id="menu-toggle"
             type="button"
@@ -158,7 +159,6 @@ const Header = () => {
           </div>
         </div>
       </section>
-      {showModal && <OpenAccountModal setShowModal={setShowModal} />}{" "}
     </header>
   );
 };
