@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
 const Operations = () => {
-
   const tabs = [
     {
       id: 1,
       label: "Instant Transfer",
       heading: "Transfer money to anyone, instantly! No fees, no BS.",
-      content: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      content:
+        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -24,13 +24,15 @@ const Operations = () => {
           />
         </svg>
       ),
-      color: "orange"
+      color: "rgba(255, 165, 0, 0.3)",
+      textColor: "#ffcb03",
     },
     {
       id: 2,
       label: "Instant Loans",
       heading: "No longer need your account? No problem! Close it instantly.",
-      content: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      content:
+        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -47,13 +49,15 @@ const Operations = () => {
           />
         </svg>
       ),
-      color: "green"
+      color: "rgba(94, 197, 118, 0.3)",
+      textColor: "#5ec576",
     },
     {
       id: 3,
       label: "Instant Closing",
       heading: "No longer need your account? No problem! Close it instantly.",
-      content: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      content:
+        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -70,9 +74,10 @@ const Operations = () => {
           />
         </svg>
       ),
-      color: "red"
-    }
-  ]
+      color: "rgba(255, 88, 95, 0.3)",
+      textColor: "#ff585f",
+    },
+  ];
 
   const [activeTab, setActiveTab] = useState(tabs[0]);
 
@@ -99,11 +104,10 @@ const Operations = () => {
           {tabs.map((tab) => (
             <span
               key={tab.id}
-              className={`tab-button bg-${tab.color} hover:bg-${
-                tab.color
-              }-dark mr-4 md:text-lg px-5 py-2 rounded-full text-nowrap flex items-center gap-2 me-2 md:-translate-y-2/4 cursor-pointer mt-4 md:mt-0 ${
+              className={`mr-4 md:text-lg px-5 py-2 rounded-full text-nowrap flex items-center gap-2 me-2 md:-translate-y-2/4 cursor-pointer mt-4 md:mt-0 ${
                 activeTab === tab ? "active" : ""
               }`}
+              style={{ backgroundColor: tab.textColor }}
               id={`${tab.label.toLowerCase()}-btn`}
               onClick={() => handleTabClick(tab)}
             >
@@ -114,9 +118,13 @@ const Operations = () => {
         </div>
 
         <div id="tabcontents">
-          <div className=" md:grid grid-cols-[4rem,1fr] gap-x-12 gap-y-2 px-6 py-14 lg:px-14">
+          <div className="md:grid grid-cols-[4rem,1fr] gap-x-12 gap-y-2 px-6 py-14 lg:px-14">
             <span
-              className={`hidden md:flex bg-${activeTab.color}/30 w-16 h-16 rounded-full items-center justify-center text-${activeTab.color}`}
+              className={`hidden md:flex w-16 h-16 rounded-full items-center justify-center`}
+              style={{
+                backgroundColor: activeTab.color,
+                color: activeTab.textColor,
+              }}
             >
               {activeTab.icon}
             </span>
